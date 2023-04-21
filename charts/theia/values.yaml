@@ -84,12 +84,21 @@ tolerations: []
 
 affinity: {}
 
+##### 
+
 livenessProbe:
   httpGet:
     path: /
     port: http
-    
+
 readinessProbe:
   httpGet:
     path: /
     port: http
+
+persistence:
+  enabled: true
+  accessMode: "ReadWriteOnce"
+  size: 1Gi
+  storageClass: longhorn
+  path: /home/project
